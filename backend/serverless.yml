@@ -1,0 +1,17 @@
+service: backend
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: heshan
+  region: us-east-1
+  stage: dev
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /users/hello
+          method: get
